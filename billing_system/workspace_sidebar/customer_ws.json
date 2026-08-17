@@ -1,0 +1,29 @@
+{
+ "app": "billing_system",
+ "creation": "2026-08-13 14:45:55.365372",
+ "docstatus": 0,
+ "doctype": "Workspace Sidebar",
+ "idx": 0,
+ "items": [
+  {
+   "child": 0,
+   "collapsible": 1,
+   "default_workspace": 0,
+   "icon": "apple",
+   "indent": 0,
+   "keep_closed": 0,
+   "label": "Customer-View",
+   "link_to": "Customer",
+   "link_type": "DocType",
+   "open_in_new_tab": 1,
+   "show_arrow": 0,
+   "type": "Link"
+  }
+ ],
+ "modified": "2026-08-13 14:45:55.365372",
+ "modified_by": "Administrator",
+ "name": "Customer-WS",
+ "owner": "Administrator",
+ "standard": 1,
+ "title": "Customer-WS"
+}

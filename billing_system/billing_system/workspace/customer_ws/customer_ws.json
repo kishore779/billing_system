@@ -1,0 +1,51 @@
+{
+ "app": "billing_system",
+ "charts": [],
+ "content": "[]",
+ "creation": "2026-08-13 14:45:58.758775",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "idx": 0,
+ "indicator_color": "green",
+ "is_hidden": 0,
+ "label": "Customer-WS",
+ "link_type": "DocType",
+ "links": [],
+ "modified": "2026-08-13 14:48:36.644732",
+ "modified_by": "Administrator",
+ "module": "Billing System",
+ "name": "Customer-WS",
+ "number_cards": [],
+ "owner": "Administrator",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [
+  {
+   "role": "Customer"
+  }
+ ],
+ "sequence_id": 10.0,
+ "shortcuts": [],
+ "sidebar_items": [
+  {
+   "child": 0,
+   "collapsible": 1,
+   "default_workspace": 0,
+   "icon": "apple",
+   "indent": 0,
+   "keep_closed": 0,
+   "label": "Customer-View",
+   "link_to": "Customer",
+   "link_type": "DocType",
+   "open_in_new_tab": 1,
+   "show_arrow": 0,
+   "type": "Link"
+  }
+ ],
+ "standard": 1,
+ "title": "Customer-WS",
+ "type": "Workspace"
+}

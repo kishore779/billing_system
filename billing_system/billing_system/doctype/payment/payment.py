@@ -5,7 +5,7 @@
 from frappe.model.document import Document
 
 
-class ServiceType(Document):
+class Payment(Document):
 	# begin: auto-generated types
 	# This code is auto-generated. Do not modify anything in this block.
 
@@ -14,12 +14,12 @@ class ServiceType(Document):
 	if TYPE_CHECKING:
 		from frappe.types import DF
 
-		category: DF.Data | None
-		default_rate: DF.Currency
-		description: DF.SmallText | None
-		is_active: DF.Check
-		service_name: DF.Data
-		tax: DF.Link | None
+		amount: DF.Currency
+		invoice: DF.Link | None
+		outstanding_amount: DF.Currency
+		payment_date: DF.Date | None
+		payment_method: DF.Literal["UPI", "Cash", "Bank_transfer", "C"]
+		yet_to_pay: DF.Currency
 	# end: auto-generated types
 
-	_DOCTYPE_NAME = "Service Type"
+	_DOCTYPE_NAME = "Payment"

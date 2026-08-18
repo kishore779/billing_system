@@ -16,9 +16,10 @@ class Invoice(Document):
 		from billing_system.billing_system.doctype.invoice_item.invoice_item import InvoiceItem
 		from frappe.types import DF
 
+		amended_from: DF.Link | None
 		amount_paid: DF.Currency
 		balance_amount: DF.Currency
-		customer: DF.Link | None
+		customer: DF.Link
 		discount_amount: DF.Currency
 		due_date: DF.Date | None
 		grand_total: DF.Currency
@@ -58,7 +59,15 @@ class Invoice(Document):
 				product.save()
 			else:
 				frappe.throw("Required quantity not available")
-			
 
+	def has_permission(self,permission):
+		roles = frappe.get_roles()
+		if "Administrator" in roles:
+			return True
+		if "Sales User" in roles:
+			return True
+		if "Customer" in roles:
+			return self.customer == frappe.get_value("Customer",{"email":frappe.session.user},"name")
+		return False
 	
 

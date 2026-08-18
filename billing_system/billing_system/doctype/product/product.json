@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_bulk_edit": 1,
+ "allow_import": 1,
  "allow_rename": 1,
  "autoname": "PRO-.####",
  "creation": "2026-08-12 10:13:11.800038",
@@ -67,7 +68,7 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-08-13 10:08:35.458291",
+ "modified": "2026-08-17 16:20:20.314046",
  "modified_by": "Administrator",
  "module": "Billing System",
  "name": "Product",

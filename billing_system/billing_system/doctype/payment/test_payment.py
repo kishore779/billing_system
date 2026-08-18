@@ -13,9 +13,9 @@ IGNORE_TEST_RECORD_DEPENDENCIES = []  # eg. ["User"]
 
 
 
-class IntegrationTestServiceType(IntegrationTestCase):
+class IntegrationTestPayment(IntegrationTestCase):
 	"""
-	Integration tests for ServiceType.
+	Integration tests for Payment.
 	Use this class for testing interactions between multiple components.
 	"""
 

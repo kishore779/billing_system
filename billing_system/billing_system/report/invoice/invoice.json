@@ -1,0 +1,47 @@
+{
+ "add_total_row": 0,
+ "add_translate_data": 0,
+ "columns": [],
+ "creation": "2026-08-18 10:36:31.153343",
+ "disable_prepared_report_automation": 0,
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "doctype_to_sync": [],
+ "filters": [
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "label": "Customer",
+   "mandatory": 0,
+   "options": "Customer",
+   "wildcard_filter": 0
+  }
+ ],
+ "generate_csv": 0,
+ "idx": 0,
+ "is_standard": "Yes",
+ "modified": "2026-08-18 11:00:58.162416",
+ "modified_by": "Administrator",
+ "module": "Billing System",
+ "name": "invoice",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "query": "SELECT name, customer, grand_total\nFROM `tabInvoice`\nWHERE customer = %(customer)s",
+ "ref_doctype": "Invoice",
+ "report_name": "invoice",
+ "report_type": "Query Report",
+ "roles": [
+  {
+   "role": "System Manager"
+  },
+  {
+   "role": "Billing Manager"
+  },
+  {
+   "role": "Sale User"
+  }
+ ],
+ "snapshot_report": 0,
+ "timeout": 0
+}

@@ -1,7 +1,7 @@
 # Copyright (c) 2026, kishore and Contributors
 # See license.txt
 
-# import frappe
+import frappe
 from frappe.tests import IntegrationTestCase
 
 
@@ -19,4 +19,18 @@ class IntegrationTestInvoice(IntegrationTestCase):
 	Use this class for testing interactions between multiple components.
 	"""
 
-	pass
+	def test_total_amount(self):
+		ex_invoice = frappe.get_doc({
+			"doctype" :"Invoice",
+			"first_name" : "Kiruthik",
+			"email" : "kiruthik@gmail.com",
+			"purchased_products" : [
+				{"item_name" : "PRO-0002", "quantity" : 2},
+				{"item_name" : "PRO-0004", "quantity" : 3}
+			],
+			"amount_paid" : 10000
+		})
+		ex_invoice.insert(ignore_permissions=True)
+		
+
+		self.assertEqual(ex_invoice.grand_total, 274400)

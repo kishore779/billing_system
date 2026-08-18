@@ -105,6 +105,34 @@ frappe.ui.form.on("Invoice", {
             });
 
         });
+        frm.add_custom_button("Details", function(){
+            let d = new frappe.ui.Dialog({
+                title : "Customer Details",
+                fields : [
+                    {
+                        "label" : "Name",
+                        "fieldname" : "name",
+                        "fieldtype" : "Data"
+                    },
+                    {
+                        "label" : "Date of Birth",
+                        "fieldname" : "dob",
+                        "fieldtype" : "Date"
+                    }
+                ],
+                primary_action_label : "Confirm",
+                primary_action(values){
+                    console.log("Customer Entered");
+                    d.hide();
+                } ,
+                secondary_action_label : "Exit",
+                secondary_action(values){
+                    console.log("Customer cancelled");
+                    d.hide();
+                },
+            });
+            d.show();
+        });
     }
 });
 

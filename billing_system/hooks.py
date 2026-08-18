@@ -9,6 +9,10 @@ app_license = "mit"
 # bodies instead of form-encoded, per-key JSON-stringified values.
 use_json_request_body = True
 
+permission_query_conditions= {
+    "Invoice" : "billing_system.api.invoice_list"
+}
+
 # Apps
 # ------------------
 

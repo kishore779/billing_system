@@ -10,8 +10,11 @@ app_license = "mit"
 use_json_request_body = True
 
 permission_query_conditions= {
-    "Invoice" : "billing_system.api.invoice_list"
+    "Invoice" : "billing_system.api.invoice_list",
+    "Payment" : "billing_system.api.payment_list"
 }
+
+app_include_js = "custom_asset.bundle.js"
 
 # Apps
 # ------------------

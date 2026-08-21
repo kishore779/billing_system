@@ -13,8 +13,9 @@ class Invoice(Document):
 	from typing import TYPE_CHECKING
 
 	if TYPE_CHECKING:
-		from billing_system.billing_system.doctype.invoice_item.invoice_item import InvoiceItem
 		from frappe.types import DF
+
+		from billing_system.billing_system.doctype.invoice_item.invoice_item import InvoiceItem
 
 		amended_from: DF.Link | None
 		amount_paid: DF.Currency
@@ -37,8 +38,8 @@ class Invoice(Document):
 	def before_save(self):
 		total = 0
 		for row in self.purchased_products:
-
-			total = total + row.total_amount
+			row.total_amount = row.quantity * row.rate
+			total += row.total_amount
 
 		self.grand_total = total
 
@@ -50,7 +51,7 @@ class Invoice(Document):
 	def validate(self):
 		if not self.amount_paid:
 			frappe.throw("Must settle the initial amount")
-		
+
 		for item in self.purchased_products:
 			product = frappe.get_doc("Product", item.item_name)
 
@@ -69,5 +70,5 @@ class Invoice(Document):
 		if "Customer" in roles:
 			return self.customer == frappe.get_value("Customer",{"email":frappe.session.user},"name")
 		return False
-	
+
 

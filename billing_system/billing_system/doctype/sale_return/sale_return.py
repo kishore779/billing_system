@@ -12,8 +12,9 @@ class SaleReturn(Document):
 	from typing import TYPE_CHECKING
 
 	if TYPE_CHECKING:
-		from billing_system.billing_system.doctype.return_item.return_item import ReturnItem
 		from frappe.types import DF
+
+		from billing_system.billing_system.doctype.return_item.return_item import ReturnItem
 
 		amended_from: DF.Link | None
 		customer: DF.Link | None
@@ -42,4 +43,3 @@ class SaleReturn(Document):
 			pro.save()
 		frappe.db.commit()
 
-	

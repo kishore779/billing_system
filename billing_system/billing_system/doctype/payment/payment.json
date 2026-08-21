@@ -8,6 +8,7 @@
  "engine": "InnoDB",
  "field_order": [
   "invoice",
+  "customer",
   "payment_date",
   "yet_to_pay",
   "amount",
@@ -48,12 +49,19 @@
    "fieldname": "yet_to_pay",
    "fieldtype": "Currency",
    "label": "Yet to Pay"
+  },
+  {
+   "fetch_from": "invoice.customer",
+   "fieldname": "customer",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Customer"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-08-17 15:11:26.977449",
+ "modified": "2026-08-20 15:11:09.545980",
  "modified_by": "Administrator",
  "module": "Billing System",
  "name": "Payment",

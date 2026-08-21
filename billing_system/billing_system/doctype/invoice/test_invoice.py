@@ -4,7 +4,6 @@
 import frappe
 from frappe.tests import IntegrationTestCase
 
-
 # On IntegrationTestCase, the doctype test records and all
 # link-field test record dependencies are recursively loaded
 # Use these module variables to add/remove to/from that list
@@ -20,17 +19,23 @@ class IntegrationTestInvoice(IntegrationTestCase):
 	"""
 
 	def test_total_amount(self):
+		customer = frappe.get_doc({
+			"doctype" :"Customer",
+			"first_name" : "Test Customer",
+			"email" : "test@gmail.com"
+			}).insert(ignore_permissions=True)
 		ex_invoice = frappe.get_doc({
 			"doctype" :"Invoice",
+			"customer" : customer.name,
 			"first_name" : "Kiruthik",
 			"email" : "kiruthik@gmail.com",
 			"purchased_products" : [
-				{"item_name" : "PRO-0002", "quantity" : 2},
-				{"item_name" : "PRO-0004", "quantity" : 3}
+				{"item_name" : "PRO-0002", "quantity" : 1},
+				{"item_name" : "PRO-0004", "quantity" : 1}
 			],
 			"amount_paid" : 10000
 		})
 		ex_invoice.insert(ignore_permissions=True)
-		
 
-		self.assertEqual(ex_invoice.grand_total, 274400)
+
+		self.assertEqual(ex_invoice.grand_total, 126000)

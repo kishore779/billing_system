@@ -1,0 +1,9 @@
+<h1>Customers</h1>
+<table>
+{% for customer in customers %}
+    <div>
+        <h2>{{ customer.first_name }}</h2>
+        <p>{{ customer.email }}</p>
+    </div>
+{% endfor %}
+</table>

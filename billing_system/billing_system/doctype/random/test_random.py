@@ -4,6 +4,7 @@
 # import frappe
 from frappe.tests import IntegrationTestCase
 
+
 # On IntegrationTestCase, the doctype test records and all
 # link-field test record dependencies are recursively loaded
 # Use these module variables to add/remove to/from that list
@@ -12,9 +13,9 @@ IGNORE_TEST_RECORD_DEPENDENCIES = []  # eg. ["User"]
 
 
 
-class IntegrationTestProduct(IntegrationTestCase):
+class IntegrationTestRandom(IntegrationTestCase):
 	"""
-	Integration tests for Product.
+	Integration tests for Random.
 	Use this class for testing interactions between multiple components.
 	"""
 

@@ -38,7 +38,6 @@
   {
    "fieldname": "first_name",
    "fieldtype": "Data",
-   "in_list_view": 1,
    "label": "First Name",
    "reqd": 1
   },
@@ -71,7 +70,7 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-08-13 14:40:38.423321",
+ "modified": "2026-08-31 08:22:04.504333",
  "modified_by": "Administrator",
  "module": "Billing System",
  "name": "Customer",

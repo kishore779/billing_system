@@ -1,0 +1,10 @@
+{
+ "creation": "2026-08-26 14:51:38.493219",
+ "doc_type": "Invoice",
+ "doctype": "Permission Type",
+ "modified": "2026-08-26 14:51:38.493219",
+ "modified_by": "Administrator",
+ "name": "invoice_approve",
+ "owner": "Administrator",
+ "perm_type": "approve"
+}

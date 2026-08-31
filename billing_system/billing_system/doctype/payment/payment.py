@@ -20,6 +20,7 @@ class Payment(Document):
 		outstanding_amount: DF.Currency
 		payment_date: DF.Date | None
 		payment_method: DF.Literal["UPI", "Cash", "Bank_transfer", "C"]
+		reciept: DF.Attach | None
 		yet_to_pay: DF.Currency
 	# end: auto-generated types
 
@@ -30,3 +31,8 @@ class Payment(Document):
 
 		if not "Administrator" or "Sale User" or self.customer == frappe.get_value("Customer", {"email" : frappe.session.user}, "name"):
 			frappe.throw("You are not allowed to access this page")
+
+	
+	@frappe.whitelist()
+	def get_product_details(self):
+		return frappe.get_list("Product")

@@ -17,7 +17,8 @@
   "status",
   "due_date",
   "balance_amount",
-  "amended_from"
+  "amended_from",
+  "manager_status"
  ],
  "fields": [
   {
@@ -94,13 +95,21 @@
    "print_hide": 1,
    "read_only": 1,
    "search_index": 1
+  },
+  {
+   "default": "Not Approved",
+   "depends_on": "eval:frappe.user.has_role(\"Billing Manager\")",
+   "fieldname": "manager_status",
+   "fieldtype": "Select",
+   "label": "Manager Status",
+   "options": "Approve\nNot Approved"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2026-08-17 17:25:01.871729",
+ "modified": "2026-08-26 15:41:11.248059",
  "modified_by": "Administrator",
  "module": "Billing System",
  "name": "Invoice",

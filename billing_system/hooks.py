@@ -16,6 +16,9 @@ permission_query_conditions= {
 
 app_include_js = "custom_asset.bundle.js"
 
+website_generators = ["Item"]
+
+fixtures = ["Custom Field"]
 # Apps
 # ------------------
 

@@ -13,7 +13,8 @@
   "yet_to_pay",
   "amount",
   "payment_method",
-  "outstanding_amount"
+  "outstanding_amount",
+  "reciept"
  ],
  "fields": [
   {
@@ -56,12 +57,17 @@
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Customer"
+  },
+  {
+   "fieldname": "reciept",
+   "fieldtype": "Attach",
+   "label": "Reciept"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-08-20 15:11:09.545980",
+ "modified": "2026-08-22 16:07:03.098961",
  "modified_by": "Administrator",
  "module": "Billing System",
  "name": "Payment",

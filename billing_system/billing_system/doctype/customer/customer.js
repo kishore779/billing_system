@@ -2,7 +2,15 @@
 // For license information, please see license.txt
 
 // to set a full name to the customer
-// frappe.ui.form.on('', {
+frappe.ui.form.on('Customer', {
+    refresh(frm){
+        frappe.realtime.off("creation");
+        frappe.realtime.on("creation", (data)=>{
+
+            console.log( "Created Successfully");
+        });
+        
+    }
     
-// });
+});
 

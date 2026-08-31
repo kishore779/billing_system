@@ -89,7 +89,7 @@ frappe.ui.form.on("Invoice", {
                 frappe.confirm(
                     `Do You Confirm the Discount of ${values.discount}`,
 
-                    function(){
+                    () => {
                         dis_amount = frm.doc.grand_total - (frm.doc.grand_total * (values.discount/100));
                         frm.set_value("discount_amount", dis_amount);
                         frappe.msgprint({
@@ -98,13 +98,13 @@ frappe.ui.form.on("Invoice", {
                             message : __("Discount Applied to the grand total") 
                         })
                     },
-                    function(){
+                    () => {
                         frappe.msgprint("Discount Cancelled")
                     }
                 );
             });
 
-        });
+        }, __("Details Group"));
         frm.add_custom_button("Details", function(){
             let d = new frappe.ui.Dialog({
                 title : "Customer Details",
@@ -132,7 +132,24 @@ frappe.ui.form.on("Invoice", {
                 },
             });
             d.show();
-        });
+        }, __("Details Group"));
+    },
+    manager_status:function(frm){
+        console.log("loaded")
+        if(!frm.is_new()){
+            frappe.call({
+                method : "billing_system.api.approve_invoice",
+                args : {
+                    invoice_name : frm.doc.name
+                },
+                callback : function(res){
+                    if(!res.exe){
+                        console.log(res)
+                    }
+                }
+            });
+        }
     }
 });
+
 

@@ -27,3 +27,7 @@ class Customer(Document):
 	@property
 	def full_name(self):
 		return f"{self.first_name} {self.last_name}"
+
+	def after_insert(self):
+		frappe.publish_realtime("creation", {"customer" : self.name})	
+		print("published")

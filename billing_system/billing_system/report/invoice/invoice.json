@@ -21,7 +21,7 @@
  "generate_csv": 0,
  "idx": 0,
  "is_standard": "Yes",
- "modified": "2026-08-19 11:38:11.266776",
+ "modified": "2026-08-25 11:13:17.536655",
  "modified_by": "Administrator",
  "module": "Billing System",
  "name": "invoice",
@@ -30,7 +30,7 @@
  "query": "SELECT c.name, i.grand_total\nFROM `tabInvoice` i\nINNER JOIN `tabCustomer` c\nON c.name = i.customer\nWHERE c.name = %(customer)s",
  "ref_doctype": "Invoice",
  "report_name": "invoice",
- "report_type": "Query Report",
+ "report_type": "Script Report",
  "roles": [
   {
    "role": "System Manager"

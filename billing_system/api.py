@@ -34,17 +34,10 @@ def get_customer_invoice_details():
 	return data
 
 def payment_list(user):
-	if not user == "Administrator" or not user == "Sale User":
-		customer_id = frappe.db.get_value("Customer", {"email" : frappe.session.user}, "name")
-		return f"tabPayment.customer = {frappe.db.escape(customer_id)}"
-
-@frappe.whitelist()
-def approve_invoice(invoice_name:str):
-
-	invoice = frappe.get_doc("Invoice", invoice_name)
-
-	if not frappe.has_permission("invoice","approve"):
-		frappe.throw("You did not have a permission to approve this")
-	invoice.manager_status = "Approve"
-	invoice.save()
+	if user == "Administrator":
+		return ""
+	if "Sale User" in frappe.get_roles(user) :
+		return ""
+	cus_id=frappe.get_value("Customer",{"email":user},"name")
+	return f"tabPayment.customer={frappe.db.escape(cus_id)}"
 	

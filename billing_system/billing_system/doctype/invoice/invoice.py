@@ -62,7 +62,6 @@ class Invoice(Document):
 				frappe.throw("Required quantity not available")
 
 	def has_permission(self, permission):
-		return True
 		roles = frappe.get_roles()
 		if "Administrator" in roles:
 			return True

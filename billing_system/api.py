@@ -40,4 +40,8 @@ def payment_list(user):
 		return ""
 	cus_id=frappe.get_value("Customer",{"email":user},"name")
 	return f"tabPayment.customer={frappe.db.escape(cus_id)}"
-	
+
+@frappe.whitelist()
+def get_product_details():
+	frappe.sendmail(recipients="user@example.com", subject="Product Details", message="Here are the product details.")
+	return frappe.get_list("Product")

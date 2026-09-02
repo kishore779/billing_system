@@ -27,8 +27,6 @@ class IntegrationTestInvoice(IntegrationTestCase):
 		ex_invoice = frappe.get_doc({
 			"doctype" :"Invoice",
 			"customer" : customer.name,
-			"first_name" : "Kiruthik",
-			"email" : "kiruthik@gmail.com",
 			"purchased_products" : [
 				{"item_name" : "PRO-0002", "quantity" : 1},
 				{"item_name" : "PRO-0004", "quantity" : 1}

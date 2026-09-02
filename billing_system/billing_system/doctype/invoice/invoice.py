@@ -48,6 +48,16 @@ class Invoice(Document):
 
 		self.due_date = add_days(self.invoice_date, 30)
 
+	def has_permission(self, permission):
+			roles = frappe.get_roles()
+			if "Administrator" in roles:
+				return True
+			if "Sales User" in roles:
+				return True
+			if "Customer" in roles:
+				return self.customer == frappe.get_value("Customer",{"email":frappe.session.user},"name")
+			return False
+
 	def validate(self):
 		if not self.amount_paid:
 			frappe.throw("Must settle the initial amount")
@@ -61,13 +71,10 @@ class Invoice(Document):
 			else:
 				frappe.throw("Required quantity not available")
 
-	def has_permission(self, permission):
-		roles = frappe.get_roles()
-		if "Administrator" in roles:
-			return True
-		if "Sales User" in roles:
-			return True
-		if "Customer" in roles:
-			return self.customer == frappe.get_value("Customer",{"email":frappe.session.user},"name")
-		return False
-	
+		cus_id = self.customer
+
+		invs = frappe.get_list("Invoice", {"customer": cus_id}, ["balance_amount", "due_date"])
+
+		for inv in invs:
+			if inv.balance_amount > 0 and getdate(inv.due_date) < getdate(self.invoice_date):
+				frappe.throw("Customer due is pending")

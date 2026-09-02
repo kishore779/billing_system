@@ -33,6 +33,3 @@ class Payment(Document):
 			frappe.throw("You are not allowed to access this page")
 
 	
-	@frappe.whitelist()
-	def get_product_details(self):
-		return frappe.get_list("Product")

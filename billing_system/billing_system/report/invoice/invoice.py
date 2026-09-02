@@ -1,7 +1,7 @@
 # Copyright (c) 2026, kishore and contributors
 # For license information, please see license.txt
 
-# import frappe
+import frappe
 from frappe import _
 
 
@@ -12,8 +12,12 @@ def execute(filters: dict | None = None):
 	dictionary and should return columns and data. It is called by the framework
 	every time the report is refreshed or a filter is updated.
 	"""
-	columns = get_columns()
-	data = get_data()
+	columns = [
+		{"fieldname": "name", "label": _("Invoice"), "fieldtype": "Link", "options": "Invoice"},
+		{"fieldname": "balance_amount", "label": _("Balance Amount"), "fieldtype": "Currency"},
+		{"fieldname": "grand_total", "label": _("Grand Total"), "fieldtype": "Currency"},
+	]
+	data = frappe.get_all("Invoice", fields=["name","balance_amount","grand_total"])
 
 	return columns, data
 
